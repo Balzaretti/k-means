@@ -10,22 +10,25 @@ Si el dataset a trabajar contiene una gran cantidad de variables un valor alto d
 Generalmente, los centros de los clusters tienen una separación consistente, y ninguno está súper pegado a los otros. Mantienen cierta distancia.
 
 ![Image Showing Cluster Centers](https://github.com/Balzaretti/k-means/blob/master/images/kmeans_out/kmeans_Result.png)
-INSERTAR IMAGEN!!!
+
 
 Lo que podemos observar gracias a esto es que las flores no son tan parecidas entre ellas. Esto significa que algunas flores son más grandes que otras, tales sea por el tamaño de sus pétalos o de sus sépalos. Aunque hay “outliers”, es decir, flores más grandes o pequeñas, los centros dictaminan el promedio, y por tanto se puede deducir que algunas flores son más grandes o pequeñas.
 
+##Diagramas Caja y Bigotes
 Al graficar en diagramas de caja y bigotes, podemos observar que hay muchos outliers.
 
-![Sepal Length](https://github.com/Balzaretti/k-means/blob/master/Box_and_Whiskers/sepal_length.png)
-![Sepal Width](https://github.com/Balzaretti/k-means/blob/master/Box_and_Whiskers/sepal_width.png)
-![Petal Length](https://github.com/Balzaretti/k-means/blob/master/Box_and_Whiskers/petal_length.png)
-![Petal Width](https://github.com/Balzaretti/k-means/blob/master/Box_and_Whiskers/petal_width.png)
-INSERTAR IMAGENES(SEPAL LENGTH, SEPAL WIDTH, PETAL LENGTH, PETAL WIDTH) !!!
+![Sepal Length BaW](https://github.com/Balzaretti/k-means/blob/master/Box_and_Whiskers/sepal_length.png)
+![Sepal Width BaW](https://github.com/Balzaretti/k-means/blob/master/Box_and_Whiskers/sepal_width.png)
+![Petal Length BaW](https://github.com/Balzaretti/k-means/blob/master/Box_and_Whiskers/petal_length.png)
+![Petal Width BaW](https://github.com/Balzaretti/k-means/blob/master/Box_and_Whiskers/petal_width.png)
+
 
 Como podemos ver, hay bastantes outliers, especialmente entre iris versicolor e iris virginica, que son flores de tamaños similares. Debido a esto, se tiene que tener mucho cuidado con que alguna flor esté metida en la rama equivocada. Sin embargo, debido a que el promedio es reducido, y considera mucho más valores, podemos estar muy seguros de que los centros son los correctos.
 
+##Histogramas
 Para poder observar los acumulativos en tamaños, utilizamos histogramas. Gráficas a continuación.
 
-INSERTAR IMAGENES (LAS ÚLTIMAS 4)
-
-
+![Petal Length Histogram](https://github.com/Balzaretti/k-means/blob/master/Histograms/petal_length.png)
+![Petal Width Histogram](https://github.com/Balzaretti/k-means/blob/master/Histograms/petal_width.png)
+![Sepal Length Histogram](https://github.com/Balzaretti/k-means/blob/master/Histograms/sepal_length.png)
+![Sepal Width Histogram](https://github.com/Balzaretti/k-means/blob/master/Histograms/sepal_width.png)
