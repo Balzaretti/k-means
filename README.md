@@ -14,7 +14,8 @@ Generalmente, los centros de los clusters tienen una separación consistente, y 
 
 Lo que podemos observar gracias a esto es que las flores no son tan parecidas entre ellas. Esto significa que algunas flores son más grandes que otras, tales sea por el tamaño de sus pétalos o de sus sépalos. Aunque hay “outliers”, es decir, flores más grandes o pequeñas, los centros dictaminan el promedio, y por tanto se puede deducir que algunas flores son más grandes o pequeñas.
 
-##Diagramas Caja y Bigotes
+## Diagramas Caja y Bigotes
+
 Al graficar en diagramas de caja y bigotes, podemos observar que hay muchos outliers.
 
 ![Sepal Length BaW](https://github.com/Balzaretti/k-means/blob/master/Box_and_Whiskers/sepal_length.png)
@@ -25,7 +26,8 @@ Al graficar en diagramas de caja y bigotes, podemos observar que hay muchos outl
 
 Como podemos ver, hay bastantes outliers, especialmente entre iris versicolor e iris virginica, que son flores de tamaños similares. Debido a esto, se tiene que tener mucho cuidado con que alguna flor esté metida en la rama equivocada. Sin embargo, debido a que el promedio es reducido, y considera mucho más valores, podemos estar muy seguros de que los centros son los correctos.
 
-##Histogramas
+## Histogramas
+
 Para poder observar los acumulativos en tamaños, utilizamos histogramas. Gráficas a continuación.
 
 ![Petal Length Histogram](https://github.com/Balzaretti/k-means/blob/master/Histograms/petal_length.png)
