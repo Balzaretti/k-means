@@ -4,50 +4,60 @@ def distancia(lista1, lista2):
     distancia_euclideana=math.dist(lista1, lista2)
     return distancia_euclideana
 
-def cercanos(puntos, centros, k):
-    clusters=[]
-    i=0
-    while i<k:
-        clusters.append([])
-        i+=1
+def cercanos(puntos, centros):
+    clusters=[[] for k in centros]
 
 
-    for i in puntos:
+    for i, punto in puntos:
         distancias=[]
-        for j in centros:
-            valor=distancia(i, j)
+        for j, centro in centros:
+            valor=distancia(punto, centro)
             distancias.append(valor)
         menor=99999999999999
         for n in distancias:
             if(distancias[n]<menor):
                 menor=distancias[n]
-        clusters[menor].append(puntos[i])
+        clusters[menor].append(punto)
     return clusters
 
-def centros(k_listas):
+def centros(clusters):
     nuevos_centros=[]
-    arreglos_numpy=[]
-    suma=0
-    count=0
-    for i, cluster in enumerate(k_listas):
-        suma=0
-        count=0
-        for punto in cluster:
-            suma+=punto
-            count+=1
-        promedio=suma/count
-        nuevos_centros.append(promedio)
+    for cluster in clusters:
+        nuevos_centros.append(np.mean(cluster, axis=0))
     return nuevos_centros
 
 def k_means(puntos):
-    k=int(input("Dame un valor para k:\n"))
-    rep=0
-    centros=[]
-    while rep<k:
-        centros.append(puntos[rep])
-        rep+=1
-    rep=0
-    while rep<100:
-        centros=centros(puntos)
-        cercanos(puntos,centros,k)
-    print(centros)
+    k=int(input("Dame un valor para clusters:\n"))
+    idx = np.random.randint(len(points),size=k)
+    centros = points[idx,:]
+    clusters = cercanos(puntos,centros)
+    iteraciones=int(input("Cuantas iteraciones quieres?\n"))
+    for i in range(iteraciones):
+        clusters=cercanos(puntos, centros)
+        centros=centros(clusters)
+    return clusters, centros
+
+def load_data(filename):
+    with open(filename,'r') as fp:
+        data = fp.read().split('\n')
+    data_new = [f.split(',') for f in data if f != ""]
+    data_formatted = []
+    for instance in data_new:
+        instance_new = []
+        for value in instance:
+            try:
+                instance_new.append(float(value))
+            except ValueError:
+                instance_new.append(value)
+        data_formatted.append(instance_new)
+    return data_formatted
+
+def main():
+    filename = './iris.data'
+    data = load_data(filename)
+    X=np.array([f[:-1] for f in data])
+    y=np.array([f[-1] for f in data])
+    clusters, centros = k_means(X)
+
+if __name__=="__main__":
+    main()
