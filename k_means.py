@@ -55,6 +55,7 @@ def main():
     X=np.array([f[:-1] for f in data])
     y=np.array([f[-1] for f in data])
     clusters, centros = k_means(X)
+    print(centros)
     show_clusters_centroids(clusters,centros,"Result", keep=True)
     plt.show()
 if __name__=="__main__":
